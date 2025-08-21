@@ -11,14 +11,12 @@
                     VerticalAlignment="Center"
                     Orientation="Vertical">
 
-            <!-- Название текущего трека -->
             <TextBlock Text="{Binding CurrentSong.FileName, UpdateSourceTrigger=PropertyChanged}"
                        FontSize="16"
                        FontWeight="Bold"
                        HorizontalAlignment="Center"
                        TextAlignment="Center" x:Name="outputText"/>
 
-            <!-- Панель кнопок управления -->
             <StackPanel Orientation="Horizontal"
                         HorizontalAlignment="Center">
                 <Button Content="Open" Width="70" Click="Open_Click"/>
