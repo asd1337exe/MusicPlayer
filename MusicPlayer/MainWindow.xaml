@@ -1,27 +1,29 @@
 ﻿<Window x:Class="MusicPlayer.MainWindow"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
-        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-        xmlns:local="clr-namespace:MusicPlayer" xmlns:viewmodels="clr-namespace:MusicPlayer.ViewModels" d:DataContext="{d:DesignInstance Type=viewmodels:MainViewModel}"
-        mc:Ignorable="d"
-        Title="MainWindow" Height="450" Width="800">
+        Title="Music Player" Height="200" Width="350"
+        WindowStartupLocation="CenterScreen">
+
     <Grid Margin="10">
         <StackPanel HorizontalAlignment="Center"
                     VerticalAlignment="Center"
                     Orientation="Vertical">
 
-            <TextBlock Text="{Binding CurrentSong.FileName, UpdateSourceTrigger=PropertyChanged}"
+            <TextBlock Text="{Binding CurrentSong.FileName}"
                        FontSize="16"
                        FontWeight="Bold"
                        HorizontalAlignment="Center"
-                       TextAlignment="Center" x:Name="outputText"/>
+                       TextAlignment="Center"/>
+            <TextBlock Text="{Binding CurrentSong.Duration}"
+                        FontSize="16"
+                        FontWeight="Bold"
+                        HorizontalAlignment="Center"
+                        TextAlignment="Center"/>
 
             <StackPanel Orientation="Horizontal"
                         HorizontalAlignment="Center">
                 <Button Content="Open" Width="70" Click="Open_Click"/>
-                <Button Content="Play" Width="70" Click="Play_Click"/>
-                <Button Content="Pause" Width="70" Click="Pause_Click"/>
+                <Button Content="PlayPause" Width="70" Click="PlayPause_Click"/>
                 <Button Content="Stop" Width="70" Click="Stop_Click"/>
             </StackPanel>
         </StackPanel>

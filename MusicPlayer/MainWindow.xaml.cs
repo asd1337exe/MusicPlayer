@@ -37,20 +37,17 @@ namespace MusicPlayer
             }
         }
 
-        public void Play_Click(object sender, RoutedEventArgs e) { 
+
+        public void PlayPause_Click(object sender, RoutedEventArgs e)
+        {
             if (DataContext != null)
             {
-                _vm.Play();
+                _vm.PlayPause();
             }
-        }
-
-        public void Pause_Click(object sender, RoutedEventArgs e)
-        {
-            _vm?.Pause();   
         }
 
         public void Stop_Click(object sender, RoutedEventArgs e) { 
             _vm?.Stop();
-        }
+        } 
     }
 }

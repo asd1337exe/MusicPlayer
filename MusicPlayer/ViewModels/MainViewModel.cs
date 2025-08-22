@@ -39,18 +39,12 @@ namespace MusicPlayer.ViewModels
                 string path = dialog.FileName;
                 CurrentSong = new Song { FilePath = path , Duration = AudioPlayer.GetDuration(path)};
                 _player.Play(CurrentSong.FilePath);
-                ///MessageBox.Show($"Длительность: {CurrentSong.Duration:mm\\:ss}");
             }
         }
 
-        public void Play()
+        public void PlayPause()
         {
-            _player.Resume();
-        }
-
-        public void Pause()
-        {
-            _player.Pause();
+            _player.PlayPause();
         }
 
         public void Stop()

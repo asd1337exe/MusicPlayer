@@ -11,11 +11,6 @@ namespace MusicPlayer.Models
     {
         public string FilePath { get; set; }
         public string FileName => System.IO.Path.GetFileName(FilePath);
-        public TimeSpan Duration { get; set; }
-
-    
-
-        
-
+        public string Duration { get; set; }
     }
 }

@@ -27,25 +27,27 @@ namespace MusicPlayer.Services
             _outputDevice.Play();
         }
 
-        public void Pause()
+        public void PlayPause()
         {
-            _outputDevice?.Pause();
-        }
 
-        public void Resume()
-        {
-            if (_outputDevice?.PlaybackState == PlaybackState.Paused)
-                _outputDevice.Play();
+            if (_outputDevice?.PlaybackState == PlaybackState.Playing)
+            {
+                _outputDevice.Pause();
+            }
+            else
+            {
+                _outputDevice?.Play();
+            }
         }
 
         public void Stop () {
             _outputDevice?.Stop();
         }
 
-        public static TimeSpan GetDuration(string filePath)
+        public static string GetDuration(string filePath)
         {
-            var reader = new AudioFileReader(filePath);
-            return reader.TotalTime;
+            using var reader = new AudioFileReader(filePath);
+            return reader.TotalTime.ToString(@"mm\:ss");
         }
 
         private void OnPlaybackStopped(object sender, StoppedEventArgs args)
@@ -55,6 +57,5 @@ namespace MusicPlayer.Services
             _audioFile.Dispose();
             _audioFile = null;
         }
-
     }
 }
