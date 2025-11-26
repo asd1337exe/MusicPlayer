@@ -37,7 +37,6 @@ namespace MusicPlayer
             }
         }
 
-
         public void PlayPause_Click(object sender, RoutedEventArgs e)
         {
             if (DataContext != null)
@@ -46,8 +45,18 @@ namespace MusicPlayer
             }
         }
 
-        public void Stop_Click(object sender, RoutedEventArgs e) { 
+        public void Stop_Click(object sender, RoutedEventArgs e)
+        {
             _vm?.Stop();
-        } 
+        }
+
+        public void SliderDragStarted(object sender, RoutedEventArgs e)
+        {
+            _vm?.SliderDragStarted();
+        }
+        public void SliderDragCompleted(object sender, RoutedEventArgs e)
+        {
+            _vm?.SliderDragCompleted();
+        }
     }
 }

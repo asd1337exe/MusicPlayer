@@ -25,6 +25,35 @@
                 <Button Content="Open" Width="70" Click="Open_Click"/>
                 <Button Content="PlayPause" Width="70" Click="PlayPause_Click"/>
                 <Button Content="Stop" Width="70" Click="Stop_Click"/>
+
+            </StackPanel>
+            <StackPanel Orientation="Horizontal"
+                        HorizontalAlignment="Center">
+                <TextBlock Text="Volume" VerticalAlignment="Center"/>
+                <Slider Minimum="0" Maximum="1"
+                        Width="200"
+                        TickFrequency="0.05"
+                        IsSnapToTickEnabled="False"
+                        Value="{Binding Volume, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"/>
+                <TextBlock Text="{Binding Volume, StringFormat={}{0:P0}}"
+                           Width="45"
+                           TextAlignment="Right"
+                           VerticalAlignment="Center"/>
+            </StackPanel>
+            <StackPanel Orientation="Vertical" Margin="0,10,0,0">
+                <!-- Текущая позиция и длительность -->
+                <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
+                    <TextBlock Text="{Binding CurrentTime, StringFormat={}{0:mm\\:ss}}" 
+                   FontSize="12" Width="50" TextAlignment="Right"/>
+                    <Slider Minimum="0"
+                Maximum="{Binding TotalTimeSeconds}" 
+                Value="{Binding CurrentTimeSeconds, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
+                Width="250"
+                            PreviewMouseDown="SliderDragStarted"
+        PreviewMouseUp="SliderDragCompleted"/>
+                    <TextBlock Text="{Binding CurrentSong.Duration}" 
+                   FontSize="12" Width="50"/>
+                </StackPanel>
             </StackPanel>
         </StackPanel>
     </Grid>
